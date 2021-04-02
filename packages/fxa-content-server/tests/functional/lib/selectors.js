@@ -66,10 +66,28 @@ const SETTINGS_V2 = {
     NEWSLETTERS_LINK: '[data-testid=nav-link-newsletters]',
     SUBSCRIPTIONS_LINK: '[data-testid=nav-link-subscriptions]',
   },
-  PICTURE_MENU: {
-    ADD_BUTTON: '[data-testid=unit-row-with-avatar-route]',
+  AVATAR: {
+    DEFAULT_IMAGE: '[data-testid=avatar-default]',
+    NON_DEFAULT_IMAGE: '[data-testid=avatar-nondefault]',
+    CLOSE_BUTTON: '[data-testid=close-button]',
+    SAVE_BUTTON: '[data-testid=save-button]',
     BACK_BUTTON: '[data-testid=flow-container-back-btn]',
-    HEADER: '.font-header',
+  },
+  AVATAR_ROW: {
+    ADD_BUTTON: '[data-testid=unit-row-with-avatar-route]', // TODO 'add' and 'change' buttons have same testid
+    HEADER: '#profile-picture',
+  },
+  AVATAR_ADD_PAGE: {
+    ADD_PHOTO_BUTTON: '[data-testid=add-photo-btn]', // TODO: this testid is a div around the button
+    TAKE_PHOTO_BUTTON: '[data-testid=take-photo-btn]', // but this testid is on the button. (svg issues clicking?)
+    REMOVE_PHOTO_BUTTON: '[data-testid=remove-photo-btn]', // this testid is also on the button, not the parent div (svg?)
+    FILE_INPUT: '[data-testid=avatar-image-upload-input]',
+  },
+  AVATAR_EDIT_PAGE: {
+    ZOOM_OUT_BUTTON: '[data-testid=zoom-out-btn]', // TODO: might be obscured by svg
+    ZOOM_IN_BUTTON: '[data-testid=zoom-in-btn]', // TODO: might be obscured by svg
+    ROTATE_BUTTON: '[data-testid=rotate-btn]',
+    ZOOM_SLIDER: '.MuiSlider-thumb', // TODO: do we really need this?
   },
   DISPLAY_NAME: {
     ADD_BUTTON: '[data-testid=display-name-unit-row-route]',
@@ -586,18 +604,17 @@ module.exports = {
   },
   SETTINGS_AVATAR: {
     AVATAR: '.change-avatar > .change-avatar-inner',
-    BACK: '.modal-panel #back',
-    BUTTON_CAMERA: '#camera',
-    BUTTON_ROTATE: '.rotate',
-    BUTTON_ZOOM_IN: '.zoom-in',
-    BUTTON_ZOOM_OUT: '.zoom-out',
+    BACK: SETTINGS_V2.AVATAR.BACK_BUTTON, // '.modal-panel #back',
+    BUTTON_CAMERA: SETTINGS_V2.AVATAR_ADD_PAGE.TAKE_PHOTO_BUTTON, // '#camera',
+    BUTTON_ROTATE: SETTINGS_V2.AVATAR_EDIT_PAGE.ROTATE_BUTTON, // '.rotate',
+    BUTTON_ZOOM_IN: SETTINGS_V2.AVATAR_EDIT_PAGE.ZOOM_IN_BUTTON, // '.zoom-in',
+    BUTTON_ZOOM_OUT: SETTINGS_V2.AVATAR_EDIT_PAGE.ZOOM_OUT_BUTTON, // '.zoom-out',
     CAMERA_HEADER: '#avatar-camera',
     CHANGE_HEADER: '#avatar-options',
-    CROPPER_HEADER: '.cropper',
     HEADER: '#avatar-change',
-    MENU_BUTTON: '#change-avatar .settings-unit-toggle',
-    SUBMIT: '.modal-panel #submit-btn',
-    UPLOAD_FILENAME_INPUT: '#imageLoader',
+    MENU_BUTTON: SETTINGS_V2.AVATAR_ROW.ADD_BUTTON, // '#change-avatar .settings-unit-toggle',
+    SUBMIT: SETTINGS_V2.AVATAR.SAVE_BUTTON, // '.modal-panel #submit-btn',
+    UPLOAD_FILENAME_INPUT: SETTINGS_V2.AVATAR_ADD_PAGE.FILE_INPUT, // '#imageLoader',
   },
   SETTINGS_CLIENTS: {
     BUTTON_REFRESH: SETTINGS_V2.CONNECTED_SERVICES.REFRESH_BUTTON, // '.clients-refresh',

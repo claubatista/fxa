@@ -127,6 +127,7 @@ export const AddPhotoBtn = ({
   const hiddenFileInput = (
     <input
       type="file"
+      data-testid="avatar-image-upload-input"
       accept="image/png, image/jpeg"
       onChange={onChange}
       ref={fileInputRef}
